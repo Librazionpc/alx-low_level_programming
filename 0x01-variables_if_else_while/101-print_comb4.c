@@ -16,12 +16,12 @@ int main(void)
 
 	for (n = 0; n <= 7; n++)
 	{
-		for (b = n + 1; b <= 8; b++) 
+		for (b = n + 1; b <= 8; b++)
 		{
 			for (a = b + 1; a <= 9; a++)
 			{
 				if (n != b && b != a)
-				{	
+				{
 					putchar(n + '0');
 					putchar(b + '0');
 					putchar(a + '0');
@@ -32,11 +32,9 @@ int main(void)
 					putchar(',');
 					putchar(' ');
 				}
-
 			}
 		}
 	}
 putchar('\n');
 return (0);
 }
-
