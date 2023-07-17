@@ -14,7 +14,7 @@ int main(void)
 
 	for (n = 0; n <= 8; n++)
 	{
-		for (b = 0 + 1; b <= 9; b++)
+		for (b = n + 1; b <= 9; b++)
 		{
 			if (n != b)
 			{
