@@ -1,0 +1,4 @@
+#ifdef MAIN
+#define
+
+#endif
