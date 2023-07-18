@@ -10,7 +10,7 @@
  */
 int _isalpha(int c)
 {
-	if (isupper(c))
+	if (isupper(c) || islower(c))
 	{
 		return (1);
 	}
