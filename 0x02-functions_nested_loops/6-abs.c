@@ -9,7 +9,12 @@
  */
 int _abs(int j)
 {
-	char n = abs(j);
-
-	return (n);
+	if (j > 0)
+	{
+		return (j);
+	}
+	else
+	{
+		return (j *-1);
+	}
 }
