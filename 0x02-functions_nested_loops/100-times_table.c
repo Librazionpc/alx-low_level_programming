@@ -47,7 +47,8 @@ void print_times_table(int n)
 	{
 		for (a = 0; a <= n; a++)
 		{
-			for (b = 0; b <= n; b++)
+			_putchar('0');
+			for (b = 1; b <= n; b++)
 			{
 				spacing_format(a * b);
 			}
