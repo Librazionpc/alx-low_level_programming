@@ -2,18 +2,18 @@
 /**
  *
  * print_integer - Function that primt integers
- * @m: Fetches the argument
+ * @a: Fetches the argument
  * Return: Always 0
  */
-void print_integer(int m)
+void print_integer(int a)
 {
-	int i = 1000000000;
+	int b = 1000000000;
 
-	for (; i >= 1; i /= 10)
+	for (; b >= 1; b /= 10)
 	{
-		if (m / i != 0)
+		if ((a / b) != 0)
 		{
-	  			_putchar((m / i) % 10 + '0');
+	  			_putchar((a / b) % 10 + '0');
 		}
 	}
 }
