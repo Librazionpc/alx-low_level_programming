@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * spacing_format - Function thatn print the arguments
+ * spacing_format - Function that print the arguments passed for more_numbers
  * passed in and also format it
  *
  * @n: it fetches the argument from more_numbers
