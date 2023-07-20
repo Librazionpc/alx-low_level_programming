@@ -43,7 +43,7 @@ void print_times_table(int n)
 {
 	int a, b;
 
-	if (n > 0 && n <= 12)
+	if (n >= 0 && n <= 13)
 	{
 		for (a = 0; a <= n; a++)
 		{
