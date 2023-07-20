@@ -10,15 +10,11 @@
  */
 int spacing_format(int n)
 {
-	if (n <= 9)
-	{
-		putchar(n + '0');
-	}
-	else
+	if (n > 9)
 	{
 		_putchar((n / 10) + '0');
-		_putchar((n % 10) + '0');
 	}
+	_putchar((n % 10) + '0');
 	return (0);
 }
 
