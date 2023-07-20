@@ -14,4 +14,5 @@ int add(int a, int b);
 void print_to_98(int n);
 void print_times_table(int n);
 void spacing_format(int d);
+int _isupper(int c);
 #endif
