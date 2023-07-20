@@ -12,7 +12,7 @@ int spacing_format(int n)
 {
 	if (n <= 9)
 	{
-		_putchar(n + '0');
+		putchar(n + '0');
 	}
 	else
 	{
