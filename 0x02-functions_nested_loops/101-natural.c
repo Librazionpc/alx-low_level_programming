@@ -28,7 +28,7 @@ printf("%d\n", b);
  */
 int main(void)
 {
-	hy();
+	multiples();
 	return (0);
 }
 
