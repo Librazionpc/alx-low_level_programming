@@ -3,7 +3,7 @@
 /**
  * _puts - Function that prints a string using puts, followed by a new line, to stdout.
  *
- * @str: Fetches the output from main.c
+ * @str: Fetches the output from main.c.
  */
 void _puts(char *str)
 {
