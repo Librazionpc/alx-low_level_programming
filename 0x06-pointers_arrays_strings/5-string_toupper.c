@@ -4,6 +4,8 @@
  * string_toupper - Function that convert lowercase to uppercase
  *
  * @a: Fetches the argument from main.c
+ *
+ * Return: Returns the results
  */
 char *string_toupper(char *a)
 {
