@@ -7,6 +7,7 @@
  * @src: Fetches the argument from main.c
  * @n: Fetches the argument from main.c
  *
+ * Return: Prints the destination
  */
 char *_strncat(char *dest, char *src, int n)
 {

@@ -5,6 +5,8 @@
  *
  * @dest: Fetches the argument from the main.c
  * @src: Fetches the argumnet from the main.c
+ *
+ * Return: Print pt that the destination results
  */
 char *_strcat(char *dest, char *src)
 {
