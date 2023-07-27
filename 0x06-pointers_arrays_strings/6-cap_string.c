@@ -10,7 +10,6 @@ int string_spacing(char chr);
  */
 char *cap_string(char *wrd)
 {
-	char *word = wrd;
 	int a = 0;
 
 	while (wrd[a])
