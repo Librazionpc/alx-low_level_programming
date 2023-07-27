@@ -13,7 +13,7 @@ char *rot13(char *wrd)
 	char chr1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char chr2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvqxyzabcdefghijklm";
 	char *out = wrd;
-	
+
 	for (a = 0; wrd[a] != '\0'; a++)
 	{
 		for (b = 0; b < 52; b++)
