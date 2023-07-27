@@ -16,9 +16,13 @@ char *cap_string(char *wrd)
 	while (wrd[a])
 	{
 		if (a == 0 && (wrd[a] >= 'a' && wrd[a] <= 'z'))
+		{
 			wrd[a] -= 32;
-		else if (string_spacing(wrd[a]) && (wrd[a + 1] >= 'a' && wrd[a + 1] <= 'z'))
-					wrd[a + 1] -= 32;
+		}
+		else if (string_spacing(wrd[a]) && wrd[a + 1] >= 'a' && wrd[a + 1] <= 'z')
+		{
+			wrd[a + 1] -= 32;
+		}
 		a++;
 	}
 	return (word);
@@ -27,8 +31,8 @@ char *cap_string(char *wrd)
 /**
  * string_spacing - Funtion that create spacing between the string
  *
- * @pt: Fetches the spacing for cap_string
- * 
+ * @chr: Fetches the spacing for cap_string
+ *
  * Return: Always 1 (Success)
  */
 int string_spacing(char chr)
@@ -44,4 +48,4 @@ int string_spacing(char chr)
 		}
 	}
 	return (0);
-}	
+}
