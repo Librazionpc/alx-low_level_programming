@@ -13,7 +13,7 @@ char *rot13(char *wrd)
 
 	while (wrd[a] != '\0')
 	{
-		while ((wrd[a] >= 'a' && wrd[a] <= 'm') || (wrd[a] >= 'A' && wrd[a] >= 'M'))
+		while ((wrd[a] >= 'a' && wrd[a] <= 'z') || (wrd[a] >= 'A' && wrd[a] >= 'Z'))
 		{
 			if ((wrd[a] >= 'a' && wrd[a] <= 'm') || (wrd[a] <= 'A' && wrd[a] <= 'M'))
 				wrd[a] += 13;
