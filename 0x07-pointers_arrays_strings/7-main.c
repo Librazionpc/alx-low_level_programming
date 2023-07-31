@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "main.h"
 /**
  * main - check the code
  *
@@ -19,4 +19,4 @@ int main(void)
     };
     print_chessboard(board);
     return (0);
-
+}
