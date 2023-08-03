@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * _print_rev_recursion - Function that strings in the reverse
+ * _print_rev_recursion - Function that strings in the reverse.
  *
  * @s: Fetches the argument that is the string
  *
