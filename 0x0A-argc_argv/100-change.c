@@ -4,8 +4,8 @@
 #include "main.h"
 
 /**
- * main - A proogram that prints the minimum number of coins to
- * make change for an remains of money
+ * main - A program that prints the minimum number of coins to
+ * make change for the remains of the money with the multiples of 5 from 25
  * @argc: Fetches the number of strings in argv
  * @argv: Fectes the strings in the command line
  *
