@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * spacing_format - fuction that creates space for the times_table arrangements
+ * spacing_format - function that creates space for the times_table arrangements
  *
- * @d: Fetches the answer to br place from call function
+ * @d: Fetches the answer to be place from call function
  */
 void spacing_format(int d)
 {
@@ -35,7 +35,7 @@ void spacing_format(int d)
 
 
 /**
- * print_times_table - Fuction that creates a muiltiplication table
+ * print_times_table - Function that creates a multiplication table
  *
  * @n: It fetch the argument from the main.c
  */
