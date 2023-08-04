@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Function that print the argument on the command line
+ * main - Function that print the argument passed on the command line
  *
  * @argc: Fetches the lenght of the string
  * @argv: Fetches the name of the argument
