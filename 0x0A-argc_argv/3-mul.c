@@ -3,11 +3,11 @@ int multipy(int number1, int number2);
 #include "main.h"
 #include <stdlib.h>
 
-/**\
+/**
  * multiply - Function that multiply two number
  *
  * @number1: Fetches the first the argument
- * @number2: Fetches the second the argument 
+ * @number2: Fetches the second the argument
  *
  * Return: The results to the main function
  */
@@ -29,6 +29,7 @@ int multiply(int number1, int number2)
 int main(int argc, char *argv[])
 {
 	int a, b;
+
 	if (argc < 3)
 	{
 		printf("Error\n");
