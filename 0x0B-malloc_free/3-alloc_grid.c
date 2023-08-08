@@ -27,7 +27,7 @@ int **alloc_grid(int width, int height)
 	for (i = 0; i < height; i++)
 		pt_parnt_2d_array[i] = (int *)(malloc(sizeof(int) * width));
 
-	if (pt_parnt_2d_array[i] == NULL)
+	if (pt_parnt_2d_array == NULL)
 		return (NULL);
 	return (pt_parnt_2d_array);
 }
