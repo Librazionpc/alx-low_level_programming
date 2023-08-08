@@ -8,7 +8,7 @@
  * @width: Fetches the width of the array (child array)
  * @height: Fetches the height of the array (parent array)
  *
- * Return: The 2 dimensional array 
+ * Return: The 2 dimensional array
  */
 
 int **alloc_grid(int width, int height)
@@ -26,5 +26,8 @@ int **alloc_grid(int width, int height)
 
 	for (i = 0; i < height; i++)
 		pt_parnt_2d_array[i] = (int *)(malloc(sizeof(int) * width));
+
+	if (pt_parnt_2d_array == NULL)
+		return (NULL);
 	return (pt_parnt_2d_array);
 }
