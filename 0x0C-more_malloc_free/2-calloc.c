@@ -22,7 +22,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	pt_array = malloc(size * nmemb);
 	if (pt_array == NULL)
 		return (NULL);
-	for (a = 0; a < nmemb; a++)
+	for (a = 0; a < (nmemb * size); a++)
 		pt_array[a] = 0;
 	return ((void *)pt_array);
 }
