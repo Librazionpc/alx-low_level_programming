@@ -23,6 +23,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (pt_array == NULL)
 		return (NULL);
 	for (a = 0; a < nmemb; a++)
-		pt_array[a] = 0;
+		pt_array[a] = '0';
 	return ((void *)pt_array);
 }
