@@ -10,22 +10,20 @@
  * @age: Fetches the age of the dog
  * @owner: Fetches the owner name
  *
- * Return: The the newdog name
+ * Return: The the newdog log
  */
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	if (name == NULL || owner == NULL)
-		return (NULL);
-	dog_t *log_file;
+	dog_t *log_book;
 	char *_name, *_owner;
 	int len_name, len_owner, i;
 
 	len_name = strlen(name);
 	len_owner = strlen(owner);
 
-	log_file = malloc(sizeof(dog_t));
-	if (log_file == NULL)
+	log_book = malloc(sizeof(dog_t));
+	if (log_book == NULL)
 		return (NULL);
 
 	_name = malloc(len_name + 1);
@@ -44,8 +42,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		_owner[i] = owner[i];
 	_owner[i] = '\0';
 
-	log_file->name = _name;
-	log_file->age = age;
-	log_file->owner = _owner;
-	return (log_file);
+	log_book->name = _name;
+	log_book->age = age;
+	log_book->owner = _owner;
+	return (log_book);
 }
