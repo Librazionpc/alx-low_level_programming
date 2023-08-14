@@ -1,6 +1,16 @@
 #ifndef _DOG_H_
 #define _DOG_H_
 
+/**
+ * struct dog - structure for a basic dog
+ *
+ * @name: Feches the dog's name
+ * @age: Fetches the dog's age
+ * @owner: Fetches the owner name
+ *
+ * Description: data structure for a dog log file
+ */
+
 struct dog
 {
 	char *name;
