@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "function_pointers.h"
 
 /**
@@ -5,6 +6,8 @@
  *
  * @name: Fetches the string
  * @f: Calls the funtion
+ *
+ * Return: Nothing
  */
 
 void print_name(char *name, void (*f)(char *))
