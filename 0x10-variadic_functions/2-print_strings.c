@@ -8,7 +8,7 @@
  * @separator: Fetches the string that separate the strings
  * @n: Fetches the number of string passed has the argument
  *
- * Return: Nothing
+ * Return: Nothing return
  */
 
 void print_strings(const char *separator, const unsigned int n, ...)
