@@ -25,5 +25,7 @@ int sum_them_all(const unsigned int n, ...)
 		if (n > 0)
 			sum += va_arg(args, unsigned int);
 	}
+
+	va_end(args);
 	return (sum);
 }
