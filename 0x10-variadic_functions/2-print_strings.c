@@ -8,7 +8,7 @@
  * @separator: Fetches the string that separate the strings
  * @n: Fetches the number of string passed has the argument
  *
- * Return: Nothing return
+ * Return: Nothing
  */
 
 void print_strings(const char *separator, const unsigned int n, ...)
@@ -17,11 +17,9 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	char *string;
 	va_list args;
 
-	if (n == 0)
-		return;
 	va_start(args, n);
 
-	for (i = 0; i < n; i++)
+	for (i = 0; i < n; i++)i
 	{
 		string = va_arg(args, char *);
 		if (string == NULL)
