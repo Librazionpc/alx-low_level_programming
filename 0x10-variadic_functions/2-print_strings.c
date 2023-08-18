@@ -27,9 +27,9 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			_putchar('0');
 		for (a = 0; string[a]; a++)
 			_putchar(string[a]);
-		if (i == n - 1)
+		if (separator == NULL)
 			continue;
-		if (separator != NULL)
+		if (i < n - 1)
 		{
 			for (a = 0; separator[a]; a++)
 				_putchar(separator[a]);
