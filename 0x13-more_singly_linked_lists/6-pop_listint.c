@@ -4,7 +4,7 @@
  * pop_listint - Function that delete the head of a lionked list
  * @head: Fetches the struct
  *
- * Return: The value that head is points to
+ * Return: The value that head is points to.
  */
 
 int pop_listint(listint_t **head)
