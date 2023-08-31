@@ -13,8 +13,8 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 	listint_t *save;
 	unsigned int i;
 
-	if (*head == NULL)
-		return (NULL);
+	if (head == NULL)
+		return (0);
 
 	save = head;
 
