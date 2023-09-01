@@ -12,7 +12,7 @@ unsigned int binary_to_uint(const char *b)
 	len = strlen(save);
 	for (i = len - 1; i >= 0; i--)
 	{
-		if (save[i] >= 'a' && save[i] <='z')
+		if (save[i] >= 'a' && save[i] <= 'z')
 			return (0);
 		else if (save[i] == '1')
 			results += base;
