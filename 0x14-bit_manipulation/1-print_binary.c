@@ -1,5 +1,12 @@
 #include <stdio.h>
 
+/**
+ * print_binary - Function that prints the binary representation of a number.
+ * @n: The integer
+ *
+ * Return: Nothing
+ */
+
 void print_binary(unsigned long int n)
 {
 	int shift = 0, check_zero = 1, bits;

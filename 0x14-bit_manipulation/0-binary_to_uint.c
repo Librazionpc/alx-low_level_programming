@@ -2,6 +2,12 @@
 #include "string.h"
 #include <stdio.h>
 
+/**
+ * binary_to_uint - Function that converts a binary number to an unsigned int
+ * @b: The binary to be converted
+ *
+ * Return: The results
+ */
 
 unsigned int binary_to_uint(const char *b)
 {

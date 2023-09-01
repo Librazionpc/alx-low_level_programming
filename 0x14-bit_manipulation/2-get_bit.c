@@ -1,5 +1,13 @@
 #include <stdio.h>
 
+/**
+ * get_bit - Function that returns the value of a bit at a given index.
+ *
+ * @n: The integer
+ * @index: The position
+ * Return: The bit
+ */
+
 int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned int bitNum;
