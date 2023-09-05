@@ -40,20 +40,19 @@ void cp_function(const char *file1, const char *file2)
 	ssize_t bytes_read = 0, bytes_written = 0;
 	size_t char_printed = 0;
 	char buffer[1024];
-	mode_t permissions = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
-	int file_exists = access(file2, F_OK) != -1;
 
 	fd1 = open(file1, O_RDONLY);
 	if (fd1 == -1)
 	{
 		dprintf(2, "Error: Cant't read from file %s\n", file1);
+		close(fd1);
 		exit(98);
 	}
 
 	fd2 = open(file2, O_WRONLY
 			| O_CREAT
-			| (file_exists ? 0 : O_TRUNC)
-			| permissions);
+			| O_TRUNC
+			, 0664);
 	if (fd2 == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", file2);
@@ -65,6 +64,7 @@ void cp_function(const char *file1, const char *file2)
 		if (bytes_read == -1)
 		{
 			dprintf(2, "Error: Can't read from file %s\n", file1);
+			close(fd1);
 			exit(98);
 		}
 
@@ -75,6 +75,7 @@ void cp_function(const char *file1, const char *file2)
 		if (bytes_written == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", file2);
+			close(fd2);
 			exit(99);
 		}
 
