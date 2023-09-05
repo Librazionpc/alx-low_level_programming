@@ -14,7 +14,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int file_descriptor;
 	ssize_t bytes_read = 0, bytes_written = 0;
-	size_t char_to_printed = 0, char_printed = 0;
+	size_t total_bytes_read = 0;
 	char buffer[1024];
 
 	if (filename == NULL)
@@ -32,19 +32,19 @@ ssize_t read_textfile(const char *filename, size_t letters)
 			close(file_descriptor);
 			return (0);
 		}
-		char_to_printed = bytes_read;
-		if (letters < char_to_printed)
-			char_to_printed = letters;
+		if (total_bytes_read + bytes_read > letters)
+			bytes_read = letters - total_bytes_read;
+
 		bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
-		if (bytes_written == -1
-		|| bytes_read > bytes_written
-		|| bytes_read > bytes_written)
+		if (bytes_written == -1 || bytes_read < bytes_written)
 		{
 			close(file_descriptor);
-			return (0);
+			return (total_bytes_read);
 		}
-		char_printed += char_to_printed;
+		total_bytes_read += bytes_read;
+		if (total_bytes_read >= letters)
+			break;
 	}
 	close(file_descriptor);
-	return (char_printed);
+	return (total_bytes_read);
 }
