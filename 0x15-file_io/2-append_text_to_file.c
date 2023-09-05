@@ -7,10 +7,10 @@
 #include "main.h"
 
 /**
- *
- *
- *
- *
+ * append_text_to_file - Function that append text to end of a file
+ * @filename: The file name
+ * @text_content: The text to be appended
+ * Return: Always 0 (On Success)
  */
 
 int append_text_to_file(const char *filename, char *text_content)
@@ -25,5 +25,5 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (bytes_appended == -1)
 		return (-1);
 	close(fd);
-	return 0;
+	return (1);
 }
