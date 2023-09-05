@@ -30,7 +30,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		if (bytes_read == -1)
 		{
 			close(file_descriptor);
-			return (0);
+			return (total_bytes_read);
 		}
 		if (total_bytes_read + bytes_read > letters)
 			bytes_read = letters - total_bytes_read;
