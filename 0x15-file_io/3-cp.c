@@ -38,7 +38,6 @@ void cp_function(const char *file1, const char *file2)
 {
 	int fd1, fd2;
 	ssize_t bytes_read = 0, bytes_written = 0;
-	size_t char_printed = 0;
 	char buffer[1024];
 
 	fd1 = open(file1, O_RDONLY);
@@ -65,16 +64,17 @@ void cp_function(const char *file1, const char *file2)
 		{
 			dprintf(2, "Error: Can't read from file %s\n", file1);
 			close(fd1);
+			close(fd2);
 			exit(98);
 		}
 
 		if (bytes_read == 0)
 			break;
-		char_printed += bytes_read;
 		bytes_written = write(fd2, buffer, bytes_read);
 		if (bytes_written == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", file2);
+			close(fd1);
 			close(fd2);
 			exit(99);
 		}
