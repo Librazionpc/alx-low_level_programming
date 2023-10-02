@@ -26,21 +26,23 @@ void cp(const char *file1, const char *file2)
 		dprintf(2, "Error: Can't write to %s\n", file2);
 		exit(99);
 	}
-	bytes_read = read(fd1, buffer, 1024);
-	if (bytes_read == -1)
+	while ((bytes_read = read(fd1, buffer, 1024)) > 0)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file1);
-		close(fd1);
-		close(fd2);
-		exit(98);
-	}
-	bytes_written = write(fd2, buffer, bytes_read);
-	if (bytes_written == -1)
-	{
-		dprintf(2, "Error: Can't write to %s\n", file2);
-		close(fd1);
-		close(fd2);
-		exit(99);
+		if (bytes_read == -1)
+		{
+			dprintf(2, "Error: Can't read from file %s\n", file1);
+			close(fd1);
+			close(fd2);
+			exit(98);
+		}
+		bytes_written = write(fd2, buffer, bytes_read);
+		if (bytes_written == -1)
+		{
+			dprintf(2, "Error: Can't write to %s\n", file2);
+			close(fd1);
+			close(fd2);
+			exit(99);
+		}
 	}
 	errno_close1 = close(fd1);
 	if (errno_close1 == -1)
