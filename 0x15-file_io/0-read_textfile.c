@@ -15,7 +15,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	size_t len = 0;
 	int fd;
 
-	if (filename == NULL || letters == 0)
+	if (filename == NULL)
 		return (0);
 
 	fd = open(filename, O_RDONLY);
@@ -37,7 +37,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	len += bytes_read;
 	input_buffer[bytes_read] = '\0';
-	bytes_written = write(1, input_buffer, bytes_read);
+	bytes_written = write(STDOUT_FILENO, input_buffer, bytes_read);
 	if (bytes_written < 0)
 	{
 		free(input_buffer);
