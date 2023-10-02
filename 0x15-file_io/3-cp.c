@@ -53,7 +53,7 @@ void cp(const char *file1, const char *file2)
 	errno_close2 = close(fd2);
 	if (errno_close2 == -1)
 	{
-		dprintf(2, "Error: Can't close %d", errno_close1);
+		dprintf(2, "Error: Can't close %d", errno_close2);
 		exit(100);
 	}
 }
