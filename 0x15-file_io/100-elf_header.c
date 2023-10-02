@@ -1,60 +1,72 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <elf.h>
 
-void display_elf_header_info(const char *filename) {
-    int fd = open(filename, O_RDONLY), i;
-    if (fd == -1) {
-        dprintf(STDERR_FILENO, "Error: Could not open file %s\n", filename);
-        exit(98);
-    }
+void print_elf_header(const Elf64_Ehdr *header)
+{
+	int i;
+	printf("ELF Header:\n");
+	printf("  Magic:   ");
+	for (i = 0; i < EI_NIDENT; i++)
+	{
+		printf("%02x ", header->e_ident[i]);
+	}
+	printf("\n");
 
-    Elf64_Ehdr elf_header;
-    ssize_t bytes_read = read(fd, &elf_header, sizeof(Elf64_Ehdr));
-    if (bytes_read != sizeof(Elf64_Ehdr)) {
-        dprintf(STDERR_FILENO, "Error: Could not read ELF header from file %s\n", filename);
-        close(fd);
-        exit(98);
-    }
-
-    if (elf_header.e_ident[EI_MAG0] != ELFMAG0 || 
-        elf_header.e_ident[EI_MAG1] != ELFMAG1 ||
-        elf_header.e_ident[EI_MAG2] != ELFMAG2 ||
-        elf_header.e_ident[EI_MAG3] != ELFMAG3) {
-        dprintf(STDERR_FILENO, "Error: Not a valid ELF file: %s\n", filename);
-    close(fd);
-        exit(98);
-    }
-
-    printf("ELF Header:\n");
-    printf("  Magic:   ");
-    for (i = 0; i < EI_NIDENT; i++) 
-    {
-        printf("%02x ", elf_header.e_ident[i]);
-    }
-    printf("\n");
-    printf("  Class:                             %s\n", (elf_header.e_ident[EI_CLASS] == ELFCLASS32) ? "ELF32" : "ELF64");
-    printf("  Data:                              %s\n", (elf_header.e_ident[EI_DATA] == ELFDATA2LSB) ? "2's complement, little endian" : "Unknown");
-    printf("  Version:                           %d (current)\n", elf_header.e_ident[EI_VERSION]);
-    printf("  OS/ABI:                            %s\n", elf_header.e_ident[EI_OSABI] == ELFOSABI_SYSV ? "UNIX - System V" : "Unknown");
-    printf("  ABI Version:                       %d\n", elf_header.e_ident[EI_ABIVERSION]);
-    printf("  Type:                              %s\n", (elf_header.e_type == ET_EXEC) ? "EXEC (Executable file)" : "Unknown");
-    printf("  Entry point address:               0x%lx\n", (unsigned long)elf_header.e_entry);
-
-    close(fd);
+	printf("  Class:                             %s\n", (header->e_ident[EI_CLASS] == ELFCLASS64) ? "ELF64" : "ELF32");
+	printf("  Data:                              %s\n", (header->e_ident[EI_DATA] == ELFDATA2LSB) ? "2's complement, little endian" : "2's complement, big endian");
+	printf("  Version:                           %d (current)\n", header->e_ident[EI_VERSION]);
+	printf("  OS/ABI:                            %s\n", (header->e_ident[EI_OSABI] == ELFOSABI_SYSV) ? "UNIX - System V" : "Unknown");
+	printf("  ABI Version:                       %d\n", header->e_ident[EI_ABIVERSION]);
+	printf("  Type:                              %s\n", (header->e_type == ET_EXEC) ? "EXEC (Executable file)" : "Unknown");
+	printf("  Entry point address:               0x%lx\n", (unsigned long)header->e_entry);
 }
 
-int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        dprintf(STDERR_FILENO, "Usage: %s elf_filename\n", argv[0]);
-        return 98;
-    }
+int main(int argc, char *argv[])
+{
+	int fd;
+	Elf64_Ehdr header;
+	ssize_t bytes_read;
 
-    const char *filename = argv[1];
-    display_elf_header_info(filename);
+	if (argc != 2)
+	{
+		fprintf(stderr, "Usage: %s elf_filename\n", argv[0]);
+		return (98);
+	}
 
-    return 0;
+	fd = open(argv[1], O_RDONLY);
+
+	if (fd == -1)
+	{
+		perror("Error opening file");
+		return 98;
+	}
+
+	bytes_read = read(fd, &header, sizeof(header));
+
+	if (bytes_read != sizeof(header))
+	{
+		fprintf(stderr, "Error reading ELF header\n");
+		close(fd);
+		return 98;
+	}
+
+	if (memcmp(header.e_ident, ELFMAG, SELFMAG) != 0)
+	{
+		fprintf(stderr, "Error: %s is not an ELF file\n", argv[1]);
+		close(fd);
+		return 98;	
+	}
+
+	print_elf_header(&header);
+
+	close(fd);
+	return 0;
 }
 
