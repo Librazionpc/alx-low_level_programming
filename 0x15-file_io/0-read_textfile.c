@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * read_text_file - 
+ * read_textfile - Function that reads a text file
+ * @filename: Fetches the argument filename
+ * @letters: Amount of string to be read
  *
- *
- *
+ * Return: the bytes_read
  */
 
 ssize_t read_textfile(const char *filename, size_t letters)
@@ -29,7 +30,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (bytes_read < 0)
 	{
 		free(input_buffer);
-		close (fd);
+		close(fd);
 		return (0);
 	}
 	len += bytes_read;
