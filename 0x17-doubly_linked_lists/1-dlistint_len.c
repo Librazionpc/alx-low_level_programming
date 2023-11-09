@@ -4,7 +4,7 @@
 
 /**
  * dlistint_len - Function that returns number of elements in a dlinked lists
- * @h: pointer to the fisrt nod ein the list
+ * @h: pointer to the fisrt nod in the list
  *
  * Return: The lenght of the dlinked list
  */
