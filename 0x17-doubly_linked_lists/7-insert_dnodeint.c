@@ -29,15 +29,11 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (i == 0)
 	{
 		state = add_dnodeint(h, n);
-		if (state == NULL)
-			return (NULL);
 		return (state);
 	}
 	else if (i == (idx - 1))
 	{
 		state = add_dnodeint_end(h, n);
-		if (state == NULL)
-			return (NULL);
 		return (state);
 	}
 	else
@@ -48,9 +44,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		new_dlist->n = n;
 		new_dlist->prev = save;
 		new_dlist->next = temp;
-		if (temp->prev != NULL)
-			temp->prev->next = new_dlist;
-		temp->prev = new_dlist;
+		if (save != NULL)
+			save->next = new_dlist;
+		if (temp != NULL)
+			temp->prev = new_dlist;
 	}
 	return (*h);
 }
