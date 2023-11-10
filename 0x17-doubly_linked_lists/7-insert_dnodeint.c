@@ -14,12 +14,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *temp, *new_dlist, *state, *save;
 	unsigned int i = 0;
+	size_t len = 0;
 
 	if (h == NULL)
 		return (NULL);
-
 	temp = *h;
-
+	len = dlistint_len(temp);
 	while (temp != NULL && i < idx)
 	{
 		i++;
@@ -36,7 +36,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		state = add_dnodeint_end(h, n);
 		return (state);
 	}
-	else
+	else if (idx < len)
 	{
 		new_dlist = malloc(sizeof(dlistint_t));
 		if (new_dlist == NULL)
@@ -48,6 +48,27 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			save->next = new_dlist;
 		if (temp != NULL)
 			temp->prev = new_dlist;
+		return (new_dlist);
 	}
-	return (new_dlist);
+	return (NULL);
+}
+
+/**
+ * dlistint_len - Function that returns number of elements in a dlinked lists
+ * @h: pointer to the fisrt nod in the list
+ *
+ * Return: The lenght of the dlinked list
+ */
+
+size_t dlistint_len(const dlistint_t *h)
+{
+	size_t i = 0;
+
+	while (h != NULL)
+	{
+		i++;
+		h = h->next;
+	}
+
+	return (i);
 }
