@@ -15,7 +15,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *temp, *new_dlist, *state, *save;
 	unsigned int i = 0;
 
-	if (h == NULL || *h == NULL)
+	if (h == NULL)
 		return (NULL);
 
 	temp = *h;
@@ -26,7 +26,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		save = temp;
 		temp = temp->next;
 	}
-	if (i == 0 && temp != NULL)
+	if (i == 0)
 	{
 		state = add_dnodeint(h, n);
 		return (state);
