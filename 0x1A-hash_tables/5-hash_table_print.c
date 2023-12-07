@@ -1,5 +1,12 @@
 #include "hash_tables.h"
 
+/**
+ * hash_table_print - Function that a hash table
+ * @ht: Pointer to the thash table
+ *
+ * Return: Nothing
+ */
+
 void hash_table_print(const hash_table_t *ht)
 {
 	unsigned int i;

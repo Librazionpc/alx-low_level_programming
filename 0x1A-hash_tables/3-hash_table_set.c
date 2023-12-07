@@ -1,5 +1,13 @@
 #include "hash_tables.h"
 
+/**
+ * hash_table_set - Function that adds an element to the hash table
+ * @key: The key for the value
+ * @value: The content it self
+ *
+ * Return: 1 on Success and 0 on Failure
+ *
+ */
 hash_node_t *create_new_node(const char *key, const char *value);
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
@@ -23,6 +31,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	ht->array[hash_index] = node;
 	return (1);
 }
+
+
+/**
+ * create_new_node - Function that the nodes to be add to
+ * the array or hash table
+ *
+ * @key: The key for the value
+ * @value: The ccontent itself
+ *
+ * Return: The newly created node
+ */
 
 hash_node_t *create_new_node(const char *key, const char *value)
 {
