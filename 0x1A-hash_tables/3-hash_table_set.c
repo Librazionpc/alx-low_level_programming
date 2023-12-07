@@ -14,7 +14,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned int hash_index;
 	hash_node_t *node = NULL;
 
-	if (key == NULL || *key == '\0')
+	if (key == NULL || *key == '\0' || ht == NULL)
 		return (0);
 
 	if (value == NULL)
